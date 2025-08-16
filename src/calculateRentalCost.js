@@ -5,24 +5,23 @@
  */
 function calculateRentalCost(days) {
   // write code here
-  let total = 0;
-  const costOfRent = 40;
-  const basicDisc = 20;
-  const longTermDisc = 50;
 
-  if (days < 3) {
-    total = days * costOfRent;
-  }
+  const DAYS_FOR_BASIC_DISCOUNT = 3;
+  const LONG_TERM = 7;
+  const COST_OF_RENT = 40;
+  const BASIC_DISCOUNT = 20;
+  const LONG_TERM_DISCOUNT = 50;
+  const BASE_PRICE = days * COST_OF_RENT;
 
-  if (days >= 3 && days < 7) {
-    total = days * costOfRent - basicDisc;
+  if (days >= DAYS_FOR_BASIC_DISCOUNT && days < LONG_TERM) {
+    return BASE_PRICE - BASIC_DISCOUNT;
   }
 
   if (days >= 7) {
-    total = days * costOfRent - longTermDisc;
+    return BASE_PRICE - LONG_TERM_DISCOUNT;
   }
 
-  return total;
+  return BASE_PRICE;
 }
 
 module.exports = calculateRentalCost;
